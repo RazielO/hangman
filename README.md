@@ -1,0 +1,2 @@
+# hangman
+Python hangman CLI
