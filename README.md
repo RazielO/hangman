@@ -8,6 +8,14 @@ To execute:
 python hangman.py
 
 # Screenshots
-Menu
+Menu:
 
 ![Menu](screenshots/menu.png)
+
+Game:
+
+![Game](screenshots/game.png)
+
+Losing:
+
+![Lost](screenshots/lost.png)
