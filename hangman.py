@@ -139,7 +139,7 @@ def oportunity(n, word):
     for x in range(len(word)):
         w = w + ' ' + word[x] + '  '
 
-    with open(str(n) + '.txt', 'r') as f:
+    with open('images/' + str(n) + '.txt', 'r') as f:
         print(f.read() + '\n' + w + '\n' + s + '\n\n')
 
 
