@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-import os, time, random, unicodedata
+import os, unicodedata
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from menu import menu
+from random import randint
 
 translation = {'letters': ['Letters already played:\n', 'Letras ya jugadas:\n'],
                'exit': ['Press enter to continue.', 'Presiona enter para continuar.'],
@@ -88,10 +89,17 @@ def generate_word():
         soup = BeautifulSoup(webpage, "html5lib")
         temp = soup.find('font', attrs={'data': 'palabra'}).b.text.lower().strip()
     else:
-        req = Request('http://creativitygames.net/random-word-generator/randomwords/1')
-        webpage = urlopen(req).read()
-        soup = BeautifulSoup(webpage, "html5lib")
-        temp = soup.find('li', attrs={'id': 'randomword_1'}).text
+        if os.name == 'posix':
+            words = []
+            with open('/usr/share/dict/cracklib-small', 'r') as f:
+                words = f.readlines()
+
+            temp = words[randint(0, len(words))].strip()
+        else:
+            req = Request('http://creativitygames.net/random-word-generator/randomwords/1')
+            webpage = urlopen(req).read()
+            soup = BeautifulSoup(webpage, "html5lib")
+            temp = soup.find('li', attrs={'id': 'randomword_1'}).text
 
     if ' ' in temp:
         generate_word()
