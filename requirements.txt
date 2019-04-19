@@ -34,6 +34,6 @@ retrying==1.3.3
 six==1.11.0
 team==1.0
 udiskie==1.7.5
-urllib3==1.23
+urllib3==1.24.2
 virtualenv==16.0.0
 webencodings==0.5.1
